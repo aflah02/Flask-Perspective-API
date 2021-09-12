@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+  <div class="alert alert-dark" role="alert">
+    <h3>This is a prototype for testing Perspective API and Flask. The creator has no responsibility for any harm inflicted by it's usage. User discretion is advised</h3>
+  </div></div>
+  <div class="container">
+  <form action="/" method="POST">
+    <div class="mb-3">
+      <label for="hateText" class="form-label">Your Message</label>
+      <input name = 'hateText' type="text" class="form-control" id="hateText">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br>
+  <h2>Funny Version</h2>
+  {% if hateMessage == funnyMessage%}
+  {% if hateMessage == "" %}
+  <div class="alert alert-info" role="alert">
+    No Input Yet
+  </div>
+  {% else %}
+  <div class="alert alert-success" role="alert">
+    Our System Thinks this Message is not Hateful enough to be converted, but in reality it might be so be careful.
+  </div>
+  {% endif %}
+  {% else %}
+  <div class="alert alert-secondary" role="alert">
+    The Original Message was very hateful, our systems have converted it to --> {{funnyMessage}}
+  </div>
+  {% endif %}
+</div>
+{% endblock body %}
